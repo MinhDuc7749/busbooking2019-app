@@ -5,5 +5,5 @@ export class APIContext {
 }
 
 export class APIUser {
-  
+  login = 'user/action/login'
 }
