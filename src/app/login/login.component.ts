@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         
         if(res.code == 200){
           console.log('login thanh cong');
-          
+          this._router.navigateByUrl('/login')
       }else{
         // this.popup.options = {color:  "red"}
         //   this.popup.show();
