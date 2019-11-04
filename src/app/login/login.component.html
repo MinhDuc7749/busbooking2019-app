@@ -21,8 +21,13 @@
                  <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
                </div>
                <input class="form-control" placeholder="Thư điện tử" type="email" id="email" name="email" 
-                      [(ngModel)]="loginUserData.email" required>
+                      [(ngModel)]="loginUserData.email" required
+                      (change)="checkValidEmail()"
+                      (focusout)="checkValidEmail()">
              </div>
+             <div class="error-msg" *ngIf="errorMsgEmail!=null && errorMsgEmail.length>1" style="margin-left: 50px; color: red;">
+              {{errorMsgEmail}}
+            </div>
            </div>
            <div class="form-group">
              <div class="input-group input-group-alternative">
@@ -30,8 +35,13 @@
                  <span class="input-group-text"><i class="fa fa-key"></i></span>
                </div>
                <input class="form-control current-password" placeholder="Mật khẩu" type="password" id="password" name="password" 
-                      [(ngModel)]="loginUserData.password" required>
+                      [(ngModel)]="loginUserData.password" required
+                      (change)="checkValidPassword()"
+                      (focusout)="checkValidPassword()">
              </div>
+             <div class="error-msg" *ngIf="errorMsgPassword!=null && errorMsgPassword.length>1" style="margin-left: 50px; color: red;">
+              {{errorMsgPassword}}
+            </div>
            </div>
            <div class="custom-control custom-control-alternative custom-checkbox">
              <input class="custom-control-input" id='rememberme' name='rememberme' type="checkbox" checked>
@@ -43,6 +53,8 @@
              <button type="submit" class="btn btn-primary my-4 w-100" (click)="loginUser()">Đăng nhập</button>
            </div>
          </form>
+
+        
        </div>
      </div>
      
